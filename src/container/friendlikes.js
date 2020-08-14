@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import broadcastPlusButtonClicked from '../actions/broadcastplusbuttonclicked';
+import broadcastMinusButtonClicked from '../actions/broadcastminusbuttonclicked';
 
 class FriendLikes extends React.Component {
 
@@ -44,7 +45,7 @@ class FriendLikes extends React.Component {
                 <br></br>
                 <button onClick={()=>this.props.plusClicked(this.getLikeObject())}>+</button>
                 &nbsp; { this.getLikesFromProps()  }
-                <button>-</button>
+                <button onClick={()=>this.props.minusClicked(this.getLikeObject())}>-</button>
             </div>
           )
         }
@@ -62,7 +63,8 @@ function convertStoreToPropsForFriendLikesContainer(store){
 
 function convertEventToPropsAndDispatchFromFriendLikesContainer(dispatch){
     return bindActionCreators({
-        plusClicked: broadcastPlusButtonClicked
+        plusClicked: broadcastPlusButtonClicked,
+        minusClicked : broadcastMinusButtonClicked
     }, dispatch)
 }
  

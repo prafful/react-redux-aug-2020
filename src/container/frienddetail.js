@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class FriendDetail extends React.Component {
 
+
     getCountFromPropsOtherFriend =()=>{
         console.log("Received otherfriend as prop in FriendDetail container....")
         console.log(this.props.otherfriend);
@@ -22,6 +23,22 @@ class FriendDetail extends React.Component {
         return friendlikes.likes
     }
     
+    getBlogTitleFromProps=()=>{
+        return this.props.blogs.then(res=>{
+            console.log(res.data);
+            var tempData = res.data
+            let foundBlog = tempData.find(b =>{
+                return b.id === this.props.friend.id
+            })
+            return foundBlog
+
+        }, err=>{
+            console.log(err);
+        })
+      
+    }
+
+
     render() { 
         if(this.props.friend === null){
             return (
@@ -40,6 +57,10 @@ class FriendDetail extends React.Component {
                         <li>Friend Since: {this.props.friend.since} </li>
                         <li>Likes: {this.getLikesFromPropsOtherFriend()} </li>
                         <li>Other Friends: {this.getCountFromPropsOtherFriend()}</li>
+                        <li>
+                        <h4>Blog title: { this.getBlogTitleFromProps() }</h4>
+                            <p></p>
+                        </li>
                     </ol>
                 </div>
              );
@@ -56,7 +77,8 @@ function convertStoreToPropsForFriendDetail(store){
     return {
         friend: store.friendclicked,
         otherfriend: store.otherfriends,
-        likes: store.allfriendslikes
+        likes: store.allfriendslikes,
+        blogs: store.getblogs
     }
 }
  

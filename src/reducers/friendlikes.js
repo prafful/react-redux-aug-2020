@@ -50,7 +50,24 @@ const myallfriendslikes =  function friendLikesReducer(state = null, action){
                 console.log(updatedlikes) 
                 return updatedlikes 
                 
-              
+        case "MINUS_BUTTON_CLICKED":
+            console.log("Decrement the likes by 1 ....")  
+            var updatedlikes = state.map(obj =>{
+                    if(obj.id === action.payload.id){
+                        console.log("The matching one is found....");
+                        console.log(obj)
+                        obj.likes--
+                        console.log("The matching one is decremented....");
+                        console.log(obj)
+                        return obj
+                    }
+                    return obj
+                })
+                console.log(likes)
+                console.log(state)
+                console.log(updatedlikes) 
+                return updatedlikes 
+                            
                                
             
     

@@ -1,15 +1,15 @@
 
 
-const broadcastPlusButtonClicked = function(friendlikes){
+const broadcastMinusButtonClicked = function(friendlikes){
     console.log("Received friendlikes in action broadcaster....");
     console.log(friendlikes);
     console.log("Broadcast the custom event with payload....");
     console.log("Reducer will capture the custom-event + payload....")
     return ({
-        type:'PLUS_BUTTON_CLICKED',
+        type:'MINUS_BUTTON_CLICKED',
         payload:friendlikes
     })
 
 }
 
-export default broadcastPlusButtonClicked
+export default broadcastMinusButtonClicked

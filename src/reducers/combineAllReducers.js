@@ -8,13 +8,15 @@ import myotherfriends from "./otherfriends";
 
 import { combineReducers } from 'redux';
 import friendNameClickedReducer from "./friendnameclickedreducer";
+import getblogsreducer from "./reducergetblogs";
 
 const allReducers = combineReducers({
 
     allfriends: myallfriendsreducer,
     allfriendslikes: myallfriendslikes,
     otherfriends: myotherfriends,
-    friendclicked: friendNameClickedReducer
+    friendclicked: friendNameClickedReducer,
+    getblogs: getblogsreducer
 })
 
 export default allReducers
