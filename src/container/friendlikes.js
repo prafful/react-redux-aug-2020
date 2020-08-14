@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import broadcastPlusButtonClicked from '../actions/broadcastplusbuttonclicked';
 
 class FriendLikes extends React.Component {
 
@@ -13,6 +15,18 @@ class FriendLikes extends React.Component {
         })
         console.log(friendlikes);
         return friendlikes.likes  
+    }
+
+    getLikeObject=()=>{
+        console.log("Preparing to broadcast payload for likes....")
+        console.log(this.props.likes);
+        console.log("Clicked on + button in FriendLikes container....")
+        console.log(this.props.friend);
+        let friendlikes = this.props.likes.find(f=>{
+            return f.id == this.props.friend.id
+        })
+        console.log(friendlikes);
+        return friendlikes 
     }
     
     render() { 
@@ -28,7 +42,7 @@ class FriendLikes extends React.Component {
             <div>
                 I will change number of likes for given friend:
                 <br></br>
-                <button>+</button>
+                <button onClick={()=>this.props.plusClicked(this.getLikeObject())}>+</button>
                 &nbsp; { this.getLikesFromProps()  }
                 <button>-</button>
             </div>
@@ -45,5 +59,11 @@ function convertStoreToPropsForFriendLikesContainer(store){
         friend: store.friendclicked
     }
 }
+
+function convertEventToPropsAndDispatchFromFriendLikesContainer(dispatch){
+    return bindActionCreators({
+        plusClicked: broadcastPlusButtonClicked
+    }, dispatch)
+}
  
-export default  connect(convertStoreToPropsForFriendLikesContainer)(FriendLikes);
+export default  connect(convertStoreToPropsForFriendLikesContainer, convertEventToPropsAndDispatchFromFriendLikesContainer)(FriendLikes);
