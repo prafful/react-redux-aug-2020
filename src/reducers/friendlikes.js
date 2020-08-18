@@ -68,8 +68,13 @@ const myallfriendslikes =  function friendLikesReducer(state = null, action){
                 console.log(updatedlikes) 
                 return updatedlikes 
                             
-                               
-            
+        case "NEW_FRIEND":
+            console.log('add likes for new friend....')                       
+            console.log(state);
+            console.log(action.payload);
+            let length = state.length
+            let newLikes = [{ id:length+1, likes: action.payload.likes   }    , ...state]
+            return newLikes
     
         default:
             break;

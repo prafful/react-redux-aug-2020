@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+
 class FriendDetail extends React.Component {
 
 
@@ -23,20 +24,7 @@ class FriendDetail extends React.Component {
         return friendlikes.likes
     }
     
-    getBlogTitleFromProps=()=>{
-        return this.props.blogs.then(res=>{
-            console.log(res.data);
-            var tempData = res.data
-            let foundBlog = tempData.find(b =>{
-                return b.id === this.props.friend.id
-            })
-            return foundBlog
 
-        }, err=>{
-            console.log(err);
-        })
-      
-    }
 
 
     render() { 
@@ -58,7 +46,7 @@ class FriendDetail extends React.Component {
                         <li>Likes: {this.getLikesFromPropsOtherFriend()} </li>
                         <li>Other Friends: {this.getCountFromPropsOtherFriend()}</li>
                         <li>
-                        <h4>Blog title: { this.getBlogTitleFromProps() }</h4>
+                        <h4>Blog title:</h4>
                             <p></p>
                         </li>
                     </ol>
@@ -81,5 +69,7 @@ function convertStoreToPropsForFriendDetail(store){
         blogs: store.getblogs
     }
 }
+
+
  
 export default connect(convertStoreToPropsForFriendDetail)(FriendDetail)
