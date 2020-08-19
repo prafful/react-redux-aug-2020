@@ -1,7 +1,7 @@
 const { default: myallfriendslikes } = require("./friendlikes")
 
-const myallfriendsreducer = function allFriendsReducer() {
-    return [
+const myallfriendsreducer = function allFriendsReducer(state = null, action) {
+    var allfriends =  [
         {
             id: 1,
             name: 'OBB',
@@ -33,6 +33,27 @@ const myallfriendsreducer = function allFriendsReducer() {
             since: 9
         }
     ]
+
+
+    switch (action.type) {
+        case "NEW_FRIEND":
+            console.log('add name, location for new friend....')                       
+            console.log(state);
+            console.log(action.payload);
+            let length = state.length
+            let newallfriends = [{ 
+                                        id:length+1, 
+                                        name: action.payload.name,
+                                        location: action.payload.location,
+                                        since: action.payload.since
+                                    }, ...state]
+            return newallfriends
+    
+        default:
+            break;
+    }
+
+    return allfriends
 }
 
 export default myallfriendsreducer

@@ -34,6 +34,7 @@ const myallfriendslikes =  function friendLikesReducer(state = null, action){
         
         case "PLUS_BUTTON_CLICKED":
               console.log("Increment the likes by 1 ....")  
+              console.log(state);
               var updatedlikes = state.map(obj =>{
                     if(obj.id === action.payload.id){
                         console.log("The matching one is found....");

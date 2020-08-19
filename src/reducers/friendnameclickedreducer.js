@@ -1,4 +1,4 @@
-import friendNameClicked from "../actions/friendnameclicked"
+
 
 const friendNameClickedReducer = function friendNameClicked(state = null, action){
     console.log("Broadcast action received from friendnameclicked....")
