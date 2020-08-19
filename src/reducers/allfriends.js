@@ -1,4 +1,4 @@
-const { default: myallfriendslikes } = require("./friendlikes")
+
 
 const myallfriendsreducer = function allFriendsReducer(state = null, action) {
     var allfriends =  [
@@ -48,7 +48,21 @@ const myallfriendsreducer = function allFriendsReducer(state = null, action) {
                                         since: action.payload.since
                                     }, ...state]
             return newallfriends
-    
+        case "FRIEND_NAME_CLICKED":
+            console.log("Value of state when friendname is clicked... in all friends.....!")
+            console.log(state);
+            return state
+
+        case "PLUS_BUTTON_CLICKED":
+            console.log("Value of state when + is clicked... in allfriends.....!")
+            console.log(state);
+            return state  
+        
+        case "MINUS_BUTTON_CLICKED":
+            console.log("Value of state when - is clicked... in allfriends.....!")
+            console.log(state);
+            return state   
+
         default:
             break;
     }

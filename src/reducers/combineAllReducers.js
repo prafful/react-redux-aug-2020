@@ -19,4 +19,7 @@ const allReducers = combineReducers({
     getblogs: getblogsreducer
 })
 
+console.log("Log the value of all reducer!");
+console.log(allReducers);
+
 export default allReducers

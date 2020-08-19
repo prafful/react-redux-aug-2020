@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import App from './App';
 import allReducers from './reducers/combineAllReducers';
 
-console.log("Store will be created....");
+console.log("...................................Store will be created...............................................................");
 const reduxStore = createStore(allReducers)
 console.log(reduxStore);
 console.log("Store is created....");

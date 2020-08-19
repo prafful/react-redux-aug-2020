@@ -26,6 +26,21 @@ export default function otherFriendsReducer(state = null, action){
             let length = state.length
             let newotherfriends = [{ id:length+1, otherfriends: action.payload.otherfriends   }, ...state]
             return newotherfriends
+        case "FRIEND_NAME_CLICKED":
+            console.log("Value of state when friendname is clicked... in otherfriends.....!")
+            console.log(state);
+            return state    
+
+        case "PLUS_BUTTON_CLICKED":
+            console.log("Value of state when + is clicked... in otherfriends.....!")
+            console.log(state);
+            return state  
+        
+        case "MINUS_BUTTON_CLICKED":
+            console.log("Value of state when - is clicked... in otherfriends.....!")
+            console.log(state);
+            return state   
+    
     
         default:
             break;

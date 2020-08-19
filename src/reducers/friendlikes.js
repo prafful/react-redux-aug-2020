@@ -76,6 +76,11 @@ const myallfriendslikes =  function friendLikesReducer(state = null, action){
             let length = state.length
             let newLikes = [{ id:length+1, likes: action.payload.likes   }    , ...state]
             return newLikes
+
+        case "FRIEND_NAME_CLICKED":
+            console.log("Value of state when friendname is clicked... in friendlikes.....!")
+            console.log(state);
+            return state    
     
         default:
             break;
