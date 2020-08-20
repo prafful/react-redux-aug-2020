@@ -63,6 +63,9 @@ const myallfriendsreducer = function allFriendsReducer(state = null, action) {
             console.log(state);
             return state   
 
+        case "ALL_BLOGS":
+            return state       
+
         default:
             break;
     }

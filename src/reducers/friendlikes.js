@@ -80,7 +80,10 @@ const myallfriendslikes =  function friendLikesReducer(state = null, action){
         case "FRIEND_NAME_CLICKED":
             console.log("Value of state when friendname is clicked... in friendlikes.....!")
             console.log(state);
-            return state    
+            return state  
+        case "ALL_BLOGS":
+            return state        
+        
     
         default:
             break;

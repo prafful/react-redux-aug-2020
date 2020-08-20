@@ -8,7 +8,8 @@ const friendNameClickedReducer = function friendNameClicked(state = null, action
             console.log("Action with payload received in reducer!")
             console.log(action.payload);
             return action.payload
-         
+        case "ALL_BLOGS":
+            return state             
     
         default:
             break;

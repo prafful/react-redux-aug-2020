@@ -3,6 +3,7 @@ import FriendList from './container/friendlist';
 import FriendDetail from './container/frienddetail';
 import FriendLikes from './container/friendlikes';
 import AddFriend from './container/addfriend';
+import DisplayBlogs from './container/displayblogs';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
                <FriendLikes></FriendLikes>
                <hr></hr>
                <AddFriend></AddFriend>
+               <hr></hr>
+               <DisplayBlogs></DisplayBlogs>
        
     </div>
   );

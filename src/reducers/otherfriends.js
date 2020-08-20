@@ -40,7 +40,8 @@ export default function otherFriendsReducer(state = null, action){
             console.log("Value of state when - is clicked... in otherfriends.....!")
             console.log(state);
             return state   
-    
+        case "ALL_BLOGS":
+            return state     
     
         default:
             break;
